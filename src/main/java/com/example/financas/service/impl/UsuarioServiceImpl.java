@@ -2,7 +2,6 @@ package com.example.financas.service.impl;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -52,6 +51,11 @@ public class UsuarioServiceImpl implements UsuarioService{
 			throw new RegraNegocioException("Ja existe um usuairo cadastrado com este email.");
 		}
 		
+	}
+
+	@Override
+	public Optional<Usuario> obterPorId(Long id) {
+		return repository.findById(id);
 	}
 
 }
